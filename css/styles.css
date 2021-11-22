@@ -78,6 +78,17 @@ body {
     text-align: center;
     margin-bottom: 50px;
 }
+.current::after {
+    position: absolute;
+    bottom: 0;
+
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--accent-color);
+}
 
 /**-----------Лого---------------**/
 
@@ -116,18 +127,18 @@ footer .logo {
 }
 
 .link {
-    display: inline-block;
+    display: block;
     font-weight: 500;
     line-height: 1.14;
     letter-spacing: 0.02em;
     text-decoration: none;
+    position: relative;
 }
 
 .header-button {
     padding: 0;
+    margin: 0;
     border: none;
-    width: 16px;
-    height: 12px;
     margin-right: 10px;
     background-color: transparent;
     cursor: pointer;
@@ -153,7 +164,7 @@ footer .logo {
 
 nav {
     display: flex;
-    align-items: center;
+    align-items: baseline;
 }
 
 .site-nav {
@@ -189,10 +200,11 @@ nav {
 .contact.nav {
     display: flex;
     margin-left: auto;
+    align-items: baseline;
 }
 
 .contact.nav .link {
-    display: inline-block;
+    display: block;
     color: var(--primary-text-color);
     padding-bottom: 32px;
     padding-top: 32px;
@@ -357,6 +369,26 @@ address .contact-item.list:last-child {
 
 .works .item + .item {
     margin-left: 30px;
+}
+.work-position {
+    position: relative;
+}
+.work-title {
+    position: absolute;
+
+    color: var(--accent-white-color);
+    font-weight: 700;
+    line-height: 1.14;
+    text-transform: uppercase;
+
+    background-color: rgba(47, 48, 58, 0.8);
+    padding-top: 27px;
+    padding-bottom: 27px;
+    width: 100%;
+
+    text-align: center;
+    bottom: 0;
+    left: 0;
 }
 
 /**Секция наша команда**/
@@ -593,4 +625,53 @@ footer {
 .logo-client:hover .logo-icon,
 .logo-client:focus .logo-icon {
     fill: var(--accent-color);
+}
+
+/* Modal */
+.backdrop {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    width: 528px;
+    height: 521px;
+    background-color: var(--accent-white-color);
+    top: 50%;
+    left: 50%;
+    box-shadow: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+}
+
+.cross-icon {
+    padding: 0;
+
+    width: 11px;
+    height: 11px;
+    fill: #000000;
+}
+.modal-button {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: var(--accent-white-color);
 }
